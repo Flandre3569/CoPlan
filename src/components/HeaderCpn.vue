@@ -19,7 +19,7 @@ import HeaderSearch from "./HeaderSearch.vue";
     <div class="search flex space-x-5 items-center justify-around">
       <HeaderSearch></HeaderSearch>
       <div class="flex items-center justify-center">
-        <a href="#" class="login text-2xl px-5 rounded-xl py-1 hover:bg-blue-600 font-semibold"
+        <a href="#" class="login text-2xl px-5 rounded-xl py-1 font-semibold hover:text-blue-800"
           >Sign in</a
         >
       </div>
@@ -29,6 +29,7 @@ import HeaderSearch from "./HeaderSearch.vue";
 
 <style scoped lang="less">
 @btnColor: #8bd3dd;
+@fontColor: #001858;
 @fontFamily: proxima-nova, sans-serif;
 
 .logo-text {
@@ -39,10 +40,10 @@ import HeaderSearch from "./HeaderSearch.vue";
 }
 
 .login {
-  background-color: @btnColor;
   font-family: @fontFamily;
-  transition: all 0.5s ease-out;
+  color: @fontColor;
 }
+
 .nav li:hover {
   display: inline-block;
   border-bottom: solid 2px #ff6e6c;

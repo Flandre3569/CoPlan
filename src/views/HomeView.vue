@@ -7,7 +7,9 @@ import HeaderCpn from "@/components/HeaderCpn.vue";
     <header class="header">
       <HeaderCpn></HeaderCpn>
     </header>
-    <div class="container"></div>
+    <div class="container">
+      <router-view></router-view>
+    </div>
     <footer class="footer"></footer>
   </div>
 </template>
