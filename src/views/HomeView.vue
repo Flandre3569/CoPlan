@@ -1,133 +1,19 @@
 <script setup lang="ts">
-import IconSupportVue from "@/components/icons/IconSupport.vue";
+import HeaderCpnVue from "@/components/headerCpn.vue";
 </script>
 
 <template>
-  <div class="home">
-    <header class="flex justify-between w-full bg-blue-300 p-4">
-      <div>
-        <h1 class="font-semibold text-2xl">CoPlan</h1>
-      </div>
-      <div>
-        <IconSupportVue></IconSupportVue>
-      </div>
+  <div class="home w-4/5">
+    <header class="header">
+      <HeaderCpnVue></HeaderCpnVue>
     </header>
-    <div class="container">
-      <ul>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-        <li>aa</li>
-      </ul>
-    </div>
-    <footer></footer>
+    <div class="container"></div>
+    <footer class="footer"></footer>
   </div>
 </template>
 
-<style>
-header {
-  width: 100%;
-}
-
-footer {
-  width: 100%;
-  background-color: aquamarine;
-  height: 100px;
+<style scoped>
+.home {
+  margin: 0 auto;
 }
 </style>
