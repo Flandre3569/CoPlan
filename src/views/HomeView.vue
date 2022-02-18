@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import HeaderCpnVue from "@/components/headerCpn.vue";
+import HeaderCpn from "@/components/HeaderCpn.vue";
 </script>
 
 <template>
   <div class="home w-4/5">
     <header class="header">
-      <HeaderCpnVue></HeaderCpnVue>
+      <HeaderCpn></HeaderCpn>
     </header>
     <div class="container"></div>
     <footer class="footer"></footer>

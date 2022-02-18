@@ -8,6 +8,9 @@ import router from "./router";
 import "@/assets/base.css";
 import "@/assets/tailwind.css";
 
+// animate
+import "animate.css";
+
 const app = createApp(App);
 
 app.use(createPinia());
