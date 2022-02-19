@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import HeaderCpn from "@/components/HeaderCpn.vue";
+import FooterCpnVue from "@/components/FooterCpn.vue";
 </script>
 
 <template>
@@ -11,7 +12,7 @@ import HeaderCpn from "@/components/HeaderCpn.vue";
       <router-view></router-view>
     </div>
     <footer class="footer">
-      <div class="w-full h-80 bg-gray-500 mt-20"></div>
+      <FooterCpnVue></FooterCpnVue>
     </footer>
   </div>
 </template>
