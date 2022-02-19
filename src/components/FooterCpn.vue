@@ -3,7 +3,7 @@
 <template>
   <div class="footer h-96 bg-gray-800 text-white flex px-32 mt-60 py-16">
     <div class="footer-title w-2/5 h-full">
-      <span class="text-3xl">CoPlan</span>
+      <span class="title text-3xl">CoPlan</span>
       <br />
       <br />
       <br />
@@ -40,6 +40,10 @@
 @fontFamily: proxima-nova, sans-serif;
 .footer-title {
   margin: 0 auto;
+}
+
+.title {
+  font-size: xxx-large;
 }
 
 .footer {

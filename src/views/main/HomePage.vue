@@ -15,7 +15,9 @@ import ShowInfoVue from "@/components/ShowInfo.vue";
           </p>
         </div></a-col
       >
-      <a-col :span="12"><HomeShowVue class="homeShow w-full h-full py-10"></HomeShowVue></a-col>
+      <a-col :span="12">
+        <HomeShowVue class="homeShow w-full h-full py-10"></HomeShowVue>
+      </a-col>
     </a-row>
     <ShowInfoVue></ShowInfoVue>
   </div>
