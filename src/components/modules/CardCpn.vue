@@ -31,5 +31,6 @@ defineProps({
   border: solid 1px;
   border-radius: 5%;
   height: 200px;
+  background: rgba(0, 0, 0, 0);
 }
 </style>

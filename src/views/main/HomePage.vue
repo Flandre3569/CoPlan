@@ -8,7 +8,7 @@ import ShowInfoVue from "@/components/ShowInfo.vue";
     <a-row class="mt-20">
       <a-col :span="12" class="flex items-center h-full mt-20"
         ><div class="disc flex justify-center items-center px-10 flex-wrap w-11/12">
-          <h1 class="discTitle text-5xl">This is a system can develop ourselves.</h1>
+          <h1 class="discTitle text-5xl">This is a system which can develop ourselves.</h1>
           <p class="discContent mt-10">
             Don't manage your time well? Don't know where the money goes? You can record your life,
             set goals, plan your time, and track your spending through system.
