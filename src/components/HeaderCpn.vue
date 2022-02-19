@@ -3,8 +3,8 @@ import HeaderSearch from "./HeaderSearch.vue";
 </script>
 
 <template>
-  <div class="header flex justify-between items-center h-20 mt-5">
-    <div class="logo flex justify-around space-x-5 items-center">
+  <div class="header flex justify-between items-center h-20">
+    <div class="logo flex justify-around space-x-5 items-center mt-5">
       <h1 class="logo-text text-4xl font-semibold">CoPlan</h1>
       <div class="navBar pl-20">
         <ul class="nav flex items-center justify-evenly space-x-6 text-lg">

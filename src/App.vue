@@ -6,4 +6,8 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+#app {
+  background: linear-gradient(to bottom right, #fef6e4, #f3d2c1) no-repeat;
+}
+</style>
