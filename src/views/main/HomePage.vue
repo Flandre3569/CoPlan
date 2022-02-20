@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import HomeShowVue from "@/components/HomeShow.vue";
 import ShowInfoVue from "@/components/ShowInfo.vue";
+import ShowToolsVue from "@/components/ShowTools.vue";
 </script>
 
 <template>
   <div class="home-page">
-    <a-row class="mt-20">
+    <a-row class="home-show w-4/5">
       <a-col :span="12" class="flex items-center h-full mt-20"
         ><div class="disc flex justify-center items-center px-10 flex-wrap w-11/12">
           <h1 class="discTitle text-5xl">This is a system which can develop ourselves.</h1>
@@ -19,7 +20,8 @@ import ShowInfoVue from "@/components/ShowInfo.vue";
         <HomeShowVue class="homeShow w-full h-full py-10"></HomeShowVue>
       </a-col>
     </a-row>
-    <ShowInfoVue></ShowInfoVue>
+    <ShowInfoVue class="show-info w-4/5"></ShowInfoVue>
+    <ShowToolsVue class="show-tools mt-60"></ShowToolsVue>
   </div>
 </template>
 
@@ -29,6 +31,17 @@ import ShowInfoVue from "@/components/ShowInfo.vue";
 // .content {
 //   height: 400px;
 // }
+.home-page,
+.home-show,
+.show-info {
+  margin: 0 auto;
+}
+
+.home-show,
+.show-info {
+  margin-top: 5rem;
+}
+
 .discTitle {
   font-size: 50px;
   font-weight: 700;
@@ -48,5 +61,9 @@ import ShowInfoVue from "@/components/ShowInfo.vue";
   transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
     skew(0deg, 0deg);
   transform-style: preserve-3d;
+}
+
+.show-tools {
+  width: 100% !important;
 }
 </style>

@@ -19,8 +19,10 @@ import HeaderSearch from "./HeaderSearch.vue";
     <div class="search flex space-x-5 items-center justify-around">
       <HeaderSearch></HeaderSearch>
       <div class="flex items-center justify-center">
-        <a href="#" class="login text-2xl px-5 rounded-xl py-1 font-semibold hover:text-blue-800"
-          >Sign in</a
+        <router-link
+          to="/login"
+          class="login text-2xl px-5 rounded-xl py-1 font-semibold hover:text-blue-800"
+          >Sign in</router-link
         >
       </div>
     </div>

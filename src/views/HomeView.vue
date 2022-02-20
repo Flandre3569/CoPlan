@@ -8,7 +8,7 @@ import FooterCpnVue from "@/components/FooterCpn.vue";
     <header class="header sticky">
       <HeaderCpn class="w-4/5"></HeaderCpn>
     </header>
-    <div class="container w-4/5">
+    <div class="contain">
       <router-view></router-view>
     </div>
     <footer class="footer">
@@ -18,8 +18,7 @@ import FooterCpnVue from "@/components/FooterCpn.vue";
 </template>
 
 <style scoped>
-.header,
-.container {
+.header {
   margin: 0 auto;
 }
 
