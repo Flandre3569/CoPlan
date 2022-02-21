@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="login">
+  <div class="login animate__animated animate__bounceIn">
     <div class="login-box w-3/5 h-3/5 border-2 rounded-lg flex justify-between">
       <div class="login-display border-2 w-full"></div>
       <div class="login-form border-2 w-full"></div>
@@ -26,5 +26,16 @@
 
 .display-img {
   margin: 0 auto;
+}
+
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

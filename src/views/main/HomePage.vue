@@ -7,7 +7,7 @@ import ShowToolsVue from "@/components/homePage/ShowTools.vue";
 <template>
   <div class="home-page">
     <a-row class="home-show w-4/5">
-      <a-col :span="12" class="flex items-center h-full mt-20"
+      <a-col :span="12" class="flex items-center h-full mt-20 animate__animated animate__fadeInLeft"
         ><div class="disc flex justify-center items-center px-10 flex-wrap w-11/12">
           <h1 class="discTitle text-5xl">This is a system which can develop ourselves.</h1>
           <p class="discContent mt-10">
@@ -17,10 +17,12 @@ import ShowToolsVue from "@/components/homePage/ShowTools.vue";
         </div></a-col
       >
       <a-col :span="12">
-        <HomeShowVue class="homeShow w-full h-full py-10"></HomeShowVue>
+        <HomeShowVue
+          class="homeShow animate__animated animate__zoomIn w-full h-full py-10"
+        ></HomeShowVue>
       </a-col>
     </a-row>
-    <ShowInfoVue class="show-info w-4/5"></ShowInfoVue>
+    <ShowInfoVue class="show-info w-4/5 animate__animated animate__zoomIn"></ShowInfoVue>
     <ShowToolsVue class="show-tools mt-60"></ShowToolsVue>
   </div>
 </template>
