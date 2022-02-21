@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderCpn from "@/components/HeaderCpn.vue";
-import FooterCpnVue from "@/components/FooterCpn.vue";
+import HeaderCpn from "@/components/homePage/HeaderCpn.vue";
+import FooterCpnVue from "@/components/homePage/FooterCpn.vue";
 </script>
 
 <template>

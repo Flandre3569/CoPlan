@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HomeShowVue from "@/components/HomeShow.vue";
-import ShowInfoVue from "@/components/ShowInfo.vue";
-import ShowToolsVue from "@/components/ShowTools.vue";
+import HomeShowVue from "@/components/homePage/HomeShow.vue";
+import ShowInfoVue from "@/components/homePage/ShowInfo.vue";
+import ShowToolsVue from "@/components/homePage/ShowTools.vue";
 </script>
 
 <template>

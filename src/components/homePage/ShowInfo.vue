@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardCpnVue from "./modules/CardCpn.vue";
+import CardCpnVue from "../modules/CardCpn.vue";
 import { reactive } from "vue";
 const props = reactive({
   vueInfo: {

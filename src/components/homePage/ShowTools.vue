@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ToolsCardVue from "./modules/ToolsCard.vue";
+import ToolsCardVue from "../modules/ToolsCard.vue";
 import { reactive } from "vue";
 
 const props = reactive({
