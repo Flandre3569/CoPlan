@@ -12,6 +12,8 @@ interface IFormData {
 }
 const tipInfo = ref(SignUp);
 const displayPosition = ref(displayLeft);
+const isActiveLeft = ref(false);
+const isActiveRight = ref(true);
 
 // 登录
 const loginData: UnwrapRef<IFormData> = reactive({
@@ -29,6 +31,8 @@ const toggleBtn = () => {
     ? (displayPosition.value = displayRight)
     : (displayPosition.value = displayLeft);
   tipInfo.value == SignIn ? (tipInfo.value = SignUp) : (tipInfo.value = SignIn);
+  isActiveLeft.value = !isActiveLeft.value;
+  isActiveRight.value = !isActiveRight.value;
 };
 </script>
 
@@ -48,7 +52,12 @@ const toggleBtn = () => {
         }}</a-button>
       </div>
       <div class="login-form w-full relative">
-        <a-form layout="vertical" :model="registerData" class="form-data">
+        <a-form
+          layout="vertical"
+          :model="registerData"
+          class="form-data animate__animated animate__fadeIn"
+          v-show="isActiveLeft"
+        >
           <a-form-item label="Username">
             <a-input v-model:value="registerData.username" placeholder="plz input usr" />
           </a-form-item>
@@ -61,7 +70,12 @@ const toggleBtn = () => {
         </a-form>
       </div>
       <div class="login-form w-full relative">
-        <a-form layout="vertical" :model="loginData" class="form-data">
+        <a-form
+          layout="vertical"
+          :model="loginData"
+          class="form-data animate__animated animate__fadeIn"
+          v-show="isActiveRight"
+        >
           <a-form-item label="Username">
             <a-input v-model:value="loginData.username" placeholder="plz input usr" />
           </a-form-item>
@@ -123,5 +137,9 @@ const toggleBtn = () => {
 
 .login-display {
   transition: all 0.5s ease-out;
+}
+
+.isAchtive {
+  display: none;
 }
 </style>
