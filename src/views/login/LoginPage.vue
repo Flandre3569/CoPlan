@@ -1,44 +1,75 @@
-<script lang="ts">
-import { defineComponent, reactive } from "vue";
+<script lang="ts" setup>
+import { reactive, ref } from "vue";
 import type { UnwrapRef } from "vue";
+const SignIn = "Go Sign In";
+const SignUp = "Go Sign Up";
+const displayRight = "50%";
+const displayLeft = "0";
 
-interface FormState {
-  fieldA: string;
-  fieldB: string;
+interface IFormData {
+  username: string;
+  password: string;
 }
-export default defineComponent({
-  setup() {
-    const formState: UnwrapRef<FormState> = reactive({
-      layout: "horizontal",
-      fieldA: "",
-      fieldB: "",
-    });
-    return {
-      formState,
-    };
-  },
+const tipInfo = ref(SignUp);
+const displayPosition = ref(displayLeft);
+
+// 登录
+const loginData: UnwrapRef<IFormData> = reactive({
+  username: "",
+  password: "",
 });
+// 注册
+const registerData: UnwrapRef<IFormData> = reactive({
+  username: "",
+  password: "",
+});
+
+const toggleBtn = () => {
+  displayPosition.value == displayLeft
+    ? (displayPosition.value = displayRight)
+    : (displayPosition.value = displayLeft);
+  tipInfo.value == SignIn ? (tipInfo.value = SignUp) : (tipInfo.value = SignIn);
+};
 </script>
 
 <template>
   <div class="login animate__animated animate__slideInDown">
     <div class="wrapper flex justify-center mt-20 mb-10">
-      <div class="typing-demo">Please input your username and password.</div>
+      <div class="typing-demo">Please enter your username and password.</div>
     </div>
-    <div class="login-box w-3/5 h-3/5 flex justify-between space-x-3">
-      <div class="login-display border-2 w-full border-black rounded-xl">
+    <div class="login-box w-3/5 h-3/5 flex justify-between relative">
+      <div
+        class="login-display w-1/2 h-full rounded-xl bg-white z-10 absolute"
+        :style="{ left: displayPosition }"
+      >
         <img src="@/assets/images/blogging.png" alt="" />
+        <a-button danger class="toggleBtn w-4/5 mt-10 ml-10" @click="toggleBtn">{{
+          tipInfo
+        }}</a-button>
       </div>
-      <div class="login-form border-2 w-full border-black rounded-xl relative">
-        <a-form layout="vertical" :model="formState" class="form-data mx-3">
+      <div class="login-form w-full relative">
+        <a-form layout="vertical" :model="registerData" class="form-data">
           <a-form-item label="Username">
-            <a-input v-model:value="formState.fieldA" placeholder="plz input usr" />
+            <a-input v-model:value="registerData.username" placeholder="plz input usr" />
           </a-form-item>
           <a-form-item label="Password">
-            <a-input v-model:value="formState.fieldB" placeholder="plz input pwd" />
+            <a-input-password v-model:value="registerData.password" placeholder="plz input pwd" />
           </a-form-item>
           <a-form-item>
-            <a-button type="danger">Submit</a-button>
+            <a-button type="primary" danger>Sgin up</a-button>
+          </a-form-item>
+        </a-form>
+      </div>
+      <div class="login-form w-full relative">
+        <a-form layout="vertical" :model="loginData" class="form-data">
+          <a-form-item label="Username">
+            <a-input v-model:value="loginData.username" placeholder="plz input usr" />
+          </a-form-item>
+          <a-form-item label="Password">
+            <a-input-password v-model:value="loginData.password" placeholder="plz input pwd" />
+          </a-form-item>
+          <a-form-item>
+            <a-button type="primary" danger>Sgin in</a-button>
           </a-form-item>
         </a-form>
       </div>
@@ -46,7 +77,7 @@ export default defineComponent({
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .login {
   width: 100%;
   height: 100%;
@@ -88,5 +119,9 @@ export default defineComponent({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
+}
+
+.login-display {
+  transition: all 0.5s ease-out;
 }
 </style>
