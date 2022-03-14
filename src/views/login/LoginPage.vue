@@ -59,10 +59,10 @@ const toggleBtn = () => {
           v-show="isActiveLeft"
         >
           <a-form-item label="Username">
-            <a-input v-model:value="registerData.username" placeholder="plz input usr" />
+            <a-input v-model:value="registerData.username" placeholder="plz enter usr" />
           </a-form-item>
           <a-form-item label="Password">
-            <a-input-password v-model:value="registerData.password" placeholder="plz input pwd" />
+            <a-input-password v-model:value="registerData.password" placeholder="plz enter pwd" />
           </a-form-item>
           <a-form-item>
             <a-button type="primary" danger>Sgin up</a-button>
@@ -77,10 +77,10 @@ const toggleBtn = () => {
           v-show="isActiveRight"
         >
           <a-form-item label="Username">
-            <a-input v-model:value="loginData.username" placeholder="plz input usr" />
+            <a-input v-model:value="loginData.username" placeholder="plz enter usr" />
           </a-form-item>
           <a-form-item label="Password">
-            <a-input-password v-model:value="loginData.password" placeholder="plz input pwd" />
+            <a-input-password v-model:value="loginData.password" placeholder="plz enter pwd" />
           </a-form-item>
           <a-form-item>
             <a-button type="primary" danger>Sgin in</a-button>
