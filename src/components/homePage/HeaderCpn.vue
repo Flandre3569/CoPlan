@@ -8,10 +8,10 @@ import HeaderSearch from "./HeaderSearch.vue";
       <h1 class="logo-text text-4xl font-semibold">CoPlan</h1>
       <div class="navBar pl-20">
         <ul class="nav flex items-center justify-evenly space-x-6 text-lg">
-          <li><router-link to="">RECORD</router-link></li>
-          <li><router-link to="">CONSUME</router-link></li>
-          <li><router-link to="">TIMETABLE</router-link></li>
-          <li><router-link to="">GOAL</router-link></li>
+          <li><router-link to="/record">RECORD</router-link></li>
+          <li><router-link to="/consume">CONSUME</router-link></li>
+          <li><router-link to="/timetable">TIMETABLE</router-link></li>
+          <li><router-link to="/goal">GOAL</router-link></li>
         </ul>
       </div>
     </div>
