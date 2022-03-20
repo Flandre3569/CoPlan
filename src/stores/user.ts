@@ -30,5 +30,12 @@ export const useUserStore = defineStore({
       this.$state.id = "";
       this.$state.token = "";
     },
+    async signUpAction(payload: IUser) {
+      const registerInfo = await axios.post("api/user/register", {
+        username: payload.username,
+        password: payload.password,
+      });
+      console.log(registerInfo);
+    },
   },
 });
