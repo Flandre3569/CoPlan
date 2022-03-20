@@ -32,10 +32,10 @@ const registerData: UnwrapRef<IFormData> = reactive({
 });
 
 const toggleBtn = () => {
-  displayPosition.value == displayLeft
+  displayPosition.value === displayLeft
     ? (displayPosition.value = displayRight)
     : (displayPosition.value = displayLeft);
-  tipInfo.value == SignIn ? (tipInfo.value = SignUp) : (tipInfo.value = SignIn);
+  tipInfo.value === SignIn ? (tipInfo.value = SignUp) : (tipInfo.value = SignIn);
   isActiveLeft.value = !isActiveLeft.value;
   isActiveRight.value = !isActiveRight.value;
 };
