@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import router from "@/router";
 import type { IUser } from "./types";
 import { localCache } from "@/utils/Cache";
 
-export const userStore = defineStore({
+export const useUserStore = defineStore({
   id: "user",
   state: () => ({
     id: "",
@@ -21,6 +22,13 @@ export const userStore = defineStore({
 
       this.$state.id = result.id;
       this.$state.token = result.token;
+      if (result.token) {
+        router.push("/homePage");
+      }
+    },
+    signOutAction() {
+      this.$state.id = "";
+      this.$state.token = "";
     },
   },
 });

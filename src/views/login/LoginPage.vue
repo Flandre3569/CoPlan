@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import type { UnwrapRef } from "vue";
-import { userStore } from "@/stores/user";
+import { useUserStore } from "@/stores/user";
 
 const SignIn = "Go Sign In";
 const SignUp = "Go Sign Up";
@@ -18,7 +18,7 @@ const isActiveLeft = ref(false);
 const isActiveRight = ref(true);
 
 // pinia取值
-const userPinia = userStore();
+const userPinia = useUserStore();
 
 // 登录
 const loginData: UnwrapRef<IFormData> = reactive({
