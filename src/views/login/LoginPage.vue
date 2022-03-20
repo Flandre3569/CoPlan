@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
 import type { UnwrapRef } from "vue";
+import { userStore } from "@/stores/user";
+
 const SignIn = "Go Sign In";
 const SignUp = "Go Sign Up";
 const displayRight = "50%";
@@ -14,6 +16,9 @@ const tipInfo = ref(SignUp);
 const displayPosition = ref(displayLeft);
 const isActiveLeft = ref(false);
 const isActiveRight = ref(true);
+
+// pinia取值
+const userPinia = userStore();
 
 // 登录
 const loginData: UnwrapRef<IFormData> = reactive({
@@ -83,7 +88,9 @@ const toggleBtn = () => {
             <a-input-password v-model:value="loginData.password" placeholder="plz enter pwd" />
           </a-form-item>
           <a-form-item>
-            <a-button type="primary" danger>Sgin in</a-button>
+            <a-button type="primary" danger @click="userPinia.loginAction(loginData)"
+              >Sgin in</a-button
+            >
           </a-form-item>
         </a-form>
       </div>
