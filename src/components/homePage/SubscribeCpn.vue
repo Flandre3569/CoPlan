@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import InputCpnVue from "@/components/modules/InputCpn.vue";
+const email = ref("");
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import InputCpnVue from "@/components/modules/InputCpn.vue";
     <div class="title text-center mt-32 font-semibold">
       <span>Subscribe to My Newsletter</span>
     </div>
-    <InputCpnVue></InputCpnVue>
+    <InputCpnVue :email="email"></InputCpnVue>
   </div>
 </template>
 

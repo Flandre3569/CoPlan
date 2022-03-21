@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  email: {
+    type: String,
+    required: true,
+  },
+});
+</script>
 
 <template>
   <div class="input-cpn flex justify-center items-center">
