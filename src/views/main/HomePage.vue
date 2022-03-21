@@ -2,6 +2,7 @@
 import HomeShowVue from "@/components/homePage/HomeShow.vue";
 import ShowInfoVue from "@/components/homePage/ShowInfo.vue";
 import ShowToolsVue from "@/components/homePage/ShowTools.vue";
+import SubscribeCpnVue from "@/components/homePage/SubscribeCpn.vue";
 </script>
 
 <template>
@@ -24,6 +25,7 @@ import ShowToolsVue from "@/components/homePage/ShowTools.vue";
     </a-row>
     <ShowInfoVue class="show-info w-4/5 animate__animated animate__zoomIn"></ShowInfoVue>
     <ShowToolsVue class="show-tools mt-60"></ShowToolsVue>
+    <SubscribeCpnVue></SubscribeCpnVue>
   </div>
 </template>
 

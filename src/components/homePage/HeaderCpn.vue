@@ -4,6 +4,7 @@ import { localCache } from "@/utils/Cache";
 import { AntDesignOutlined } from "@ant-design/icons-vue";
 import { ref } from "vue";
 import { useUserStore } from "@/stores/user";
+import router from "@/router";
 
 const visible = ref(false);
 const showToggle = ref(false);
@@ -17,12 +18,14 @@ if (token) {
 // 退出登录
 // 这里的这个类型不知道为什么没有onClick，所以暂时用any
 const handleMenuClick = (e: any) => {
-  if (e.key === "3") {
+  if (e.key === "1") {
+    router.push({ path: "/profile" });
+  } else if (e.key === "3") {
     localCache.deleteCache("id");
     localCache.deleteCache("token");
     userStore.signOutAction();
+    showToggle.value = !showToggle.value;
   }
-  showToggle.value = !showToggle.value;
 };
 </script>
 

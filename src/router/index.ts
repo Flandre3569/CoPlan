@@ -51,6 +51,11 @@ const router = createRouter({
       name: "timetable",
       component: () => import("@/views/main/TimetablePage.vue"),
     },
+    {
+      path: "/profile",
+      name: "profile",
+      component: () => import("@/views/main/ProfilePage.vue"),
+    },
   ],
 });
 
