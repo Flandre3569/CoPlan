@@ -2,7 +2,7 @@
 defineProps({
   email: {
     type: String,
-    required: true,
+    default: "",
   },
 });
 </script>
@@ -10,7 +10,7 @@ defineProps({
 <template>
   <div class="input-cpn flex justify-center items-center">
     <div class="sub-input flex justify-center items-center w-1/2 rounded-lg space-x-5 mt-5">
-      <a-input type="text" placeholder="Your email" class="subscribe h-14">
+      <a-input type="text" placeholder="Your email" class="subscribe h-14" :v-model="email">
         <template #prefix>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,9 @@ defineProps({
           </svg>
         </template>
       </a-input>
-      <button class="sub-btn px-4 py-3 font-semibold">Subscribe*</button>
+      <button class="sub-btn px-4 py-3 font-semibold" @click="$emit('subscribe')">
+        Subscribe*
+      </button>
     </div>
   </div>
   <div class="discribe flex justify-center items-center mt-5">
