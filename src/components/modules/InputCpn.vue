@@ -1,16 +1,26 @@
 <script setup lang="ts">
-defineProps({
-  email: {
-    type: String,
-    default: "",
-  },
-});
+import { ref } from "vue";
+import axios from "axios";
+
+const subscribe = ref<string>("");
+
+const subscribeAction = async (subscribe: string) => {
+  const result = await axios.post("api/subscribe", {
+    email: subscribe,
+  });
+  console.log(result);
+};
 </script>
 
 <template>
   <div class="input-cpn flex justify-center items-center">
     <div class="sub-input flex justify-center items-center w-1/2 rounded-lg space-x-5 mt-5">
-      <a-input type="text" placeholder="Your email" class="subscribe h-14" :v-model="email">
+      <a-input
+        type="text"
+        placeholder="Your email"
+        class="subscribe h-14"
+        v-model:value="subscribe"
+      >
         <template #prefix>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +41,7 @@ defineProps({
           </svg>
         </template>
       </a-input>
-      <button class="sub-btn px-4 py-3 font-semibold" @click="$emit('subscribe')">
+      <button class="sub-btn px-4 py-3 font-semibold" @click="subscribeAction(subscribe)">
         Subscribe*
       </button>
     </div>
