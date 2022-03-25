@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import { localCache } from "@/utils/Cache";
 
 const router = createRouter({
@@ -9,7 +8,7 @@ const router = createRouter({
       path: "/",
       name: "home",
       redirect: "/homePage",
-      component: HomeView,
+      component: () => import("@/views/HomeView.vue"),
       children: [
         {
           path: "/homePage",
@@ -59,9 +58,9 @@ const router = createRouter({
   ],
 });
 
-const token = localCache.getCache("token");
 router.beforeEach((to, from) => {
-  if (to.name !== "login" && !token && to.name !== "homePage") {
+  const token = localCache.getCache("token");
+  if (to.path !== "/login" && !token && to.path !== "/homePage") {
     return "login";
   }
 });
