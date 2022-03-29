@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useProfile } from "@/stores/profile";
+import { useUserStore } from "@/stores/user";
+import { onMounted } from "vue";
+const profileStore = useProfile();
+const userStore = useUserStore();
+onMounted(() => {
+  profileStore.queryProfile(userStore);
+});
+
 const imgSrc = ref(
   "http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/38O1Z%5DE5G4%7D_%60EO9KPK8%5B7T.bmp"
 );
