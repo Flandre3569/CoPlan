@@ -25,13 +25,21 @@ export const useProfile = defineStore({
   getters: {},
   actions: {
     async queryProfile() {
-      const user_id = localCache.getCache("user_id");
+      const userId = localCache.getCache("user_id");
       const profileInfo = await axios.post("api/user/queryProfile", {
-        id: user_id,
+        id: userId,
       });
-      console.log(profileInfo);
 
-      const result = profileInfo.data;
+      const { id, user_id, avatar, email, updateAt } = profileInfo.data[0];
+
+      // 多值赋值
+      this.$patch({
+        id,
+        user_id,
+        avatar,
+        email,
+        updateAt,
+      });
     },
   },
 });
