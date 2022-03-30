@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import type { IAuth } from "./types";
 import axios from "axios";
 import { localCache } from "@/utils/Cache";
 
@@ -20,7 +19,7 @@ export const useProfile = defineStore({
     user_id: "",
     avatar: "",
     email: "",
-    updateAt: "",
+    update_id: "",
   }),
   getters: {},
   actions: {
@@ -31,6 +30,7 @@ export const useProfile = defineStore({
       });
 
       const { id, user_id, avatar, email, updateAt } = profileInfo.data[0];
+      const update_id = new Date(updateAt).toString();
 
       // 多值赋值
       this.$patch({
@@ -38,7 +38,7 @@ export const useProfile = defineStore({
         user_id,
         avatar,
         email,
-        updateAt,
+        update_id,
       });
     },
   },

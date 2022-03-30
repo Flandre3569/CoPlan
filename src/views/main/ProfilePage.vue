@@ -25,10 +25,10 @@ const name = ref("Gala");
         <h1 class="mt-10">hello</h1>
         <span>i am {{ name }}</span>
         <div class="mt-10">
-          <ul v-for="item in data" :key="item">
+          <ul v-for="(value, key) in data" :key="key">
             <li class="flex justify-start space-x-5">
-              <h2>{{ item }}</h2>
-              <span>{{ item }}</span>
+              <h2>{{ key }}</h2>
+              <span>{{ value }}</span>
             </li>
           </ul>
         </div>
