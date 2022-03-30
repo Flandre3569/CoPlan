@@ -4,14 +4,14 @@ import axios from "axios";
 import { localCache } from "@/utils/Cache";
 
 // 待修改
-// axios.interceptors.request.use((config) => {
-//   const token = localCache.getCache("token");
-//   if (token) {
-//     config.headers.Authorization = `Bearer ${token}`;
-//   }
+axios.interceptors.request.use((config) => {
+  const token = localCache.getCache("token");
+  if (config.headers) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
 
-//   return config;
-// });
+  return config;
+});
 
 export const useProfile = defineStore({
   id: "profile",
@@ -24,9 +24,10 @@ export const useProfile = defineStore({
   }),
   getters: {},
   actions: {
-    async queryProfile(profile: IAuth) {
+    async queryProfile() {
+      const user_id = localCache.getCache("user_id");
       const profileInfo = await axios.post("api/user/queryProfile", {
-        profile: profile,
+        id: user_id,
       });
       console.log(profileInfo);
 

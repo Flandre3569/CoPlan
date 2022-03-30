@@ -18,7 +18,9 @@ export const useUserStore = defineStore({
         password: payload.password,
       });
       const result = loginInfo.data;
+
       localCache.setCache("token", result.token);
+      localCache.setCache("user_id", result.id);
 
       this.$state.id = result.id;
       this.$state.token = result.token;

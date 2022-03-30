@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useProfile } from "@/stores/profile";
-import { useUserStore } from "@/stores/user";
 import { onMounted } from "vue";
 const profileStore = useProfile();
-const userStore = useUserStore();
 onMounted(() => {
-  profileStore.queryProfile(userStore);
+  profileStore.queryProfile();
 });
 
 const imgSrc = ref(
