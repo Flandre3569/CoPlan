@@ -15,9 +15,9 @@ axios.interceptors.request.use((config) => {
 export const useProfile = defineStore({
   id: "profile",
   state: () => ({
-    id: "",
-    user_id: "",
-    avatar: "",
+    name: "",
+    university: "",
+    address: "",
     email: "",
     update_id: "",
   }),
@@ -29,15 +29,18 @@ export const useProfile = defineStore({
         id: userId,
       });
 
-      const { id, user_id, avatar, email, updateAt } = profileInfo.data[0];
+      const { id, name, user_id, university, address, avatar, email, updateAt } =
+        profileInfo.data[0];
       const update_id = new Date(updateAt).toString();
+
+      localCache.setCache("user_name", name);
 
       // 多值赋值
       this.$patch({
-        id,
-        user_id,
-        avatar,
+        name,
+        university,
         email,
+        address,
         update_id,
       });
     },

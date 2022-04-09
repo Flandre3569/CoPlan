@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useProfile } from "@/stores/profile";
 import { onMounted } from "vue";
+import { localCache } from "@/utils/Cache";
 const profileStore = useProfile();
 onMounted(() => {
   profileStore.queryProfile();
@@ -12,18 +13,18 @@ const imgSrc = ref(
 );
 
 const data = profileStore.$state;
-const name = ref("Gala");
+const name = localCache.getCache("user_name");
 </script>
 
 <template>
   <div class="profile-page relative">
-    <div class="profile-card bg-white absolute flex">
+    <div class="profile-card bg-white absolute flex animate__animated animate__zoomIn">
       <div class="avatar w-2/5 px-10 pt-10">
         <img :src="imgSrc" alt="" class="avatar-img" />
       </div>
       <div>
-        <h1 class="mt-10">hello</h1>
-        <span>i am {{ name }}</span>
+        <button class="title mt-10 rounded-md p-2">hello</button><br />
+        <span class="title-name">i am {{ name }}</span>
         <div class="mt-10">
           <ul v-for="(value, key) in data" :key="key">
             <li class="flex justify-start space-x-5">
@@ -58,9 +59,18 @@ const name = ref("Gala");
   transform: translateX(-25vw);
   box-shadow: 0px 0px 8px 3px #6a7693;
 }
-
 .avatar-img {
   margin: 0 auto;
   height: 80%;
+}
+
+.title {
+  font-size: large;
+  border: burlywood solid 1px;
+}
+.title-name {
+  font-size: xxx-large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+    Verdana, sans-serif;
 }
 </style>
