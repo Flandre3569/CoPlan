@@ -34,8 +34,25 @@ const name = localCache.getCache("user_name");
           </ul>
         </div>
       </div>
+      <div
+        class="h-14 w-full bg-gray-600 bottom-0 fixed flex justify-center items-center space-x-10"
+      >
+        <img
+          src="https://uploads-ssl.webflow.com/5b6c49393d9b8434816f33f3/5b6d81519e9b6fd1303b7a93_facebook-letter-logo.svg"
+          width="20"
+          class="image"
+        />
+        <img
+          src="https://uploads-ssl.webflow.com/5b6c49393d9b8434816f33f3/5b6d81513d9b846e05705c38_twitter-logo.svg"
+          width="22"
+          class="image-2"
+        />
+      </div>
     </div>
+
     <div class="bg-top h-1/4"></div>
+
+    <button class="download border rounded-md border-gray-600 px-6 py-4">DOWNLOAD RESUME</button>
 
     <div class="bg-buttom"></div>
   </div>
@@ -43,7 +60,7 @@ const name = localCache.getCache("user_name");
 
 <style scoped lang="less">
 .profile-page {
-  height: 90vw;
+  height: 70vw;
 }
 .bg-top {
   background: url("http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/small121606lRg6G1626581766.jpg");
@@ -70,6 +87,17 @@ const name = localCache.getCache("user_name");
 }
 .title-name {
   font-size: xxx-large;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+    Verdana, sans-serif;
+}
+
+.download {
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -100%);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
     Verdana, sans-serif;
 }
