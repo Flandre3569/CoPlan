@@ -54,16 +54,27 @@ const name = localCache.getCache("user_name");
 
     <button class="download border rounded-md border-gray-600 px-6 py-4">DOWNLOAD RESUME</button>
 
-    <div class="bg-buttom"></div>
+    <div class="bg-buttom absolute h-1/4 bottom-0 text-center w-full">
+      <h1 class="footer_title">My Technology Stack</h1>
+      <div class="footer_container w-2/3 h-3/4 bg-gray-600">
+        <div class="tech_first"></div>
+        <div class="tech_second"></div>
+        <div class="tech_third"></div>
+      </div>
+    </div>
   </div>
 </template>
 
 <style scoped lang="less">
+@font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+  Verdana, sans-serif;
+
+@bg-img: url("http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/small121606lRg6G1626581766.jpg");
 .profile-page {
   height: 70vw;
 }
 .bg-top {
-  background: url("http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/small121606lRg6G1626581766.jpg");
+  background: @bg-img;
   background-size: cover;
   background-position: center center;
 }
@@ -87,8 +98,7 @@ const name = localCache.getCache("user_name");
 }
 .title-name {
   font-size: xxx-large;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
-    Verdana, sans-serif;
+  font-family: @font-family;
 }
 
 .download {
@@ -97,8 +107,18 @@ const name = localCache.getCache("user_name");
   position: relative;
   top: 30%;
   left: 50%;
+  opacity: 0.7;
   transform: translate(-50%, -100%);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
-    Verdana, sans-serif;
+  font-family: @font-family;
+}
+
+.footer_title {
+  font-size: 2rem;
+  font-family: @font-family;
+}
+.footer_container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 </style>
