@@ -53,13 +53,36 @@ const name = localCache.getCache("user_name");
     <div class="bg-top h-1/4"></div>
 
     <button class="download border rounded-md border-gray-600 px-6 py-4">DOWNLOAD RESUME</button>
+    <div class="w-full flex justify-center items-center">
+      <div class="self-introduction w-1/2 text-center">
+        Hello! I’m Robert Smith. Senior Web Developer specializing in front end development.
+        Experienced with all stages of the development cycle for dynamic web projects. Well-versed
+        in numerous programming languages including JavaScript, SQL, and C. Stng background in
+        project management and customer relations.
+      </div>
+    </div>
 
     <div class="bg-buttom absolute h-1/4 bottom-0 text-center w-full">
       <h1 class="footer_title">My Technology Stack</h1>
-      <div class="footer_container w-2/3 h-3/4 bg-gray-600">
-        <div class="tech_first"></div>
-        <div class="tech_second"></div>
-        <div class="tech_third"></div>
+      <div class="footer_container w-2/3 h-3/4 bg-white flex justify-around items-end">
+        <div class="tech_first">
+          <img
+            src="https://uploads-ssl.webflow.com/5b6c49393d9b8434816f33f3/5b6d8cd11ea16a69da81eff3_graphic-design.svg"
+            width="50"
+          />
+        </div>
+        <div class="tech_second">
+          <img
+            src="https://uploads-ssl.webflow.com/5b6c49393d9b8434816f33f3/5b6d8cd1b3323e7bcd00d063_web-design.svg"
+            width="50"
+          />
+        </div>
+        <div class="tech_third">
+          <img
+            src="https://uploads-ssl.webflow.com/5b6c49393d9b8434816f33f3/5b6d8ccf9e9b6f7f863b8244_wordpress.svg"
+            width="50"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -112,6 +135,12 @@ const name = localCache.getCache("user_name");
   font-family: @font-family;
 }
 
+.self-introduction {
+  position: relative;
+  font-family: @font-family;
+  font-size: large;
+  bottom: -30rem;
+}
 .footer_title {
   font-size: 2rem;
   font-family: @font-family;
@@ -120,5 +149,16 @@ const name = localCache.getCache("user_name");
   position: absolute;
   left: 50%;
   transform: translate(-50%);
+}
+
+.tech_first,
+.tech_second,
+.tech_third {
+  height: 90%;
+  width: 20%;
+  padding: 1rem;
+}
+.bg-buttom {
+  box-shadow: 0px 0px 8px 3px #6a7693;
 }
 </style>
