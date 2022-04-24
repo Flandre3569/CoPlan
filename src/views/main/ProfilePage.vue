@@ -13,6 +13,7 @@ const imgSrc = ref(
 );
 
 const data = profileStore.$state;
+
 const name = localCache.getCache("user_name");
 </script>
 
@@ -55,10 +56,7 @@ const name = localCache.getCache("user_name");
     <button class="download border rounded-md border-gray-600 px-6 py-4">DOWNLOAD RESUME</button>
     <div class="w-full flex justify-center items-center">
       <div class="self-introduction w-1/2 text-center">
-        Hello! I’m Robert Smith. Senior Web Developer specializing in front end development.
-        Experienced with all stages of the development cycle for dynamic web projects. Well-versed
-        in numerous programming languages including JavaScript, SQL, and C. Stng background in
-        project management and customer relations.
+        {{ data.introduction }}
       </div>
     </div>
 

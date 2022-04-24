@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import { localCache } from "@/utils/Cache";
 
-// 待修改
+// 拦截token
 axios.interceptors.request.use((config) => {
   const token = localCache.getCache("token");
   if (config.headers) {
@@ -20,6 +20,7 @@ export const useProfile = defineStore({
     address: "",
     email: "",
     update_id: "",
+    introduction: "",
   }),
   getters: {},
   actions: {
@@ -29,7 +30,7 @@ export const useProfile = defineStore({
         id: userId,
       });
 
-      const { id, name, user_id, university, address, avatar, email, updateAt } =
+      const { id, name, user_id, university, address, avatar, email, updateAt, introduction } =
         profileInfo.data[0];
       const update_id = new Date(updateAt).toString();
 
@@ -42,6 +43,7 @@ export const useProfile = defineStore({
         email,
         address,
         update_id,
+        introduction,
       });
     },
   },
