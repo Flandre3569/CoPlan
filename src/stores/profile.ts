@@ -12,6 +12,8 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
+const userId = localCache.getCache("user_id");
+
 export const useProfile = defineStore({
   id: "profile",
   state: () => ({
@@ -25,7 +27,6 @@ export const useProfile = defineStore({
   getters: {},
   actions: {
     async queryProfile() {
-      const userId = localCache.getCache("user_id");
       const profileInfo = await axios.post("api/user/queryProfile", {
         id: userId,
       });

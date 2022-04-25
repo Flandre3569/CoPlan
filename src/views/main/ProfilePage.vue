@@ -28,7 +28,7 @@ const name = localCache.getCache("user_name");
         <span class="title-name">i am {{ name }}</span>
         <div class="mt-10">
           <ul v-for="(value, key) in data" :key="key">
-            <li class="flex justify-start space-x-5">
+            <li class="flex justify-start space-x-5" v-if="key !== 'introduction'">
               <h2>{{ key }}</h2>
               <span>{{ value }}</span>
             </li>
