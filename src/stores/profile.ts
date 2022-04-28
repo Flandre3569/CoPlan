@@ -31,11 +31,23 @@ export const useProfile = defineStore({
         id: userId,
       });
 
-      const { id, name, user_id, university, address, avatar, email, updateAt, introduction } =
-        profileInfo.data[0];
+      const {
+        id,
+        name,
+        user_id,
+        university,
+        address,
+        avatar,
+        email,
+        updateAt,
+        introduction,
+        background,
+      } = profileInfo.data[0];
       const update_id = new Date(updateAt).toString();
 
       localCache.setCache("user_name", name);
+      localCache.setCache("avatar", avatar);
+      localCache.setCache("bg_img", background);
 
       // 多值赋值
       this.$patch({

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { useProfile } from "@/stores/profile";
 import { onMounted } from "vue";
 import { localCache } from "@/utils/Cache";
@@ -8,20 +7,17 @@ onMounted(() => {
   profileStore.queryProfile();
 });
 
-const imgSrc = ref(
-  "http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/38O1Z%5DE5G4%7D_%60EO9KPK8%5B7T.bmp"
-);
-
 const data = profileStore.$state;
 
 const name = localCache.getCache("user_name");
+const avatar = localCache.getCache("avatar");
 </script>
 
 <template>
   <div class="profile-page relative">
     <div class="profile-card bg-white absolute flex animate__animated animate__zoomIn">
       <div class="avatar w-2/5 px-10 pt-10">
-        <img :src="imgSrc" alt="" class="avatar-img" />
+        <img :src="avatar" alt="" class="avatar-img" />
       </div>
       <div>
         <button class="title mt-10 rounded-md p-2">hello</button><br />

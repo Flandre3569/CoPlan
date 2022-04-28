@@ -1,15 +1,19 @@
 <script lang="ts" setup>
 import HeaderSearch from "./HeaderSearch.vue";
 import { localCache } from "@/utils/Cache";
-import { AntDesignOutlined } from "@ant-design/icons-vue";
 import { ref } from "vue";
 import { useUserStore } from "@/stores/user";
 import router from "@/router";
 
 const visible = ref(false);
 const showToggle = ref(false);
+
+// 用户的登录状态
 const userStore = useUserStore();
 const token = localCache.getCache("token");
+
+// 从session中拿出avatar
+const avatar = localCache.getCache("avatar");
 
 // 头像和登录的切换
 if (token) {
@@ -54,10 +58,11 @@ const handleMenuClick = (e: any) => {
         >
       </div>
       <a-dropdown v-model:visible="visible">
-        <a-avatar v-show="showToggle" :size="{ xs: 12, sm: 16, md: 20, lg: 32, xl: 40, xxl: 50 }">
-          <template #icon>
-            <AntDesignOutlined />
-          </template>
+        <a-avatar
+          :src="avatar"
+          v-show="showToggle"
+          :size="{ xs: 12, sm: 16, md: 20, lg: 32, xl: 40, xxl: 50 }"
+        >
         </a-avatar>
         <template #overlay>
           <a-menu @click="handleMenuClick">
