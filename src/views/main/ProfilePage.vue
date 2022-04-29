@@ -11,6 +11,7 @@ const data = profileStore.$state;
 
 const name = localCache.getCache("user_name");
 const avatar = localCache.getCache("avatar");
+const bg_img = localCache.getCache("bg_img");
 </script>
 
 <template>
@@ -47,7 +48,7 @@ const avatar = localCache.getCache("avatar");
       </div>
     </div>
 
-    <div class="bg-top h-1/4"></div>
+    <img class="bg-top h-1/4 w-full" :src="bg_img" />
 
     <button class="download border rounded-md border-gray-600 px-6 py-4">DOWNLOAD RESUME</button>
     <div class="w-full flex justify-center items-center">
@@ -86,12 +87,10 @@ const avatar = localCache.getCache("avatar");
 @font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
   Verdana, sans-serif;
 
-@bg-img: url("http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/small121606lRg6G1626581766.jpg");
 .profile-page {
   height: 70vw;
 }
 .bg-top {
-  background: @bg-img;
   background-size: cover;
   background-position: center center;
 }
