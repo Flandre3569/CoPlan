@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { useProfile } from "@/stores/profile";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { localCache } from "@/utils/Cache";
+
+// 引入antd的组件
+import { message } from "ant-design-vue";
+import type { UploadChangeParam, UploadProps } from "ant-design-vue";
+
 const profileStore = useProfile();
 onMounted(() => {
   profileStore.queryProfile();
@@ -9,16 +14,66 @@ onMounted(() => {
 
 const data = profileStore.$state;
 
+// 图片数据持久化处理
 const name = localCache.getCache("user_name");
 const avatar = localCache.getCache("avatar");
 const bg_img = localCache.getCache("bg_img");
+
+// 照片上传列表
+const fileList = ref([]);
+// 图片上传状态
+const loading = ref<boolean>(false);
+const imageUrl = ref<string>("");
+
+// 上传之前的预处理
+const beforeUpload = (file: UploadProps["fileList"][number]) => {
+  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  if (!isJpgOrPng) {
+    message.error("You can only upload JPG file!");
+  }
+  const isLt2M = file.size / 1024 / 1024 < 2;
+  if (!isLt2M) {
+    message.error("Image must smaller than 2MB!");
+  }
+  return isJpgOrPng && isLt2M;
+};
+
+// 上传过程变化对应执行的函数
+const handleChange = (info: UploadChangeParam) => {
+  if (info.file.status === "uploading") {
+    loading.value = true;
+    return;
+  }
+  if (info.file.status === "done") {
+    // Get this url from response in real world.
+    getBase64(info.file.originFileObj, (base64Url: string) => {
+      imageUrl.value = base64Url;
+      loading.value = false;
+    });
+  }
+  if (info.file.status === "error") {
+    loading.value = false;
+    message.error("upload error");
+  }
+};
 </script>
 
 <template>
   <div class="profile-page relative">
     <div class="profile-card bg-white absolute flex animate__animated animate__zoomIn">
-      <div class="avatar w-2/5 px-10 pt-10">
-        <img :src="avatar" alt="" class="avatar-img" />
+      <div class="avatar w-2/5 px-10 pt-10" title="修改头像">
+        <a-upload
+          v-model:file-list="fileList"
+          name="avatar"
+          list-type="picture-card"
+          class="avatar-uploader"
+          :show-upload-list="false"
+          action="api/user/avatarUpload"
+          :before-upload="beforeUpload"
+          @change="handleChange"
+        >
+          <img :src="avatar" alt="" class="avatar-img" />
+        </a-upload>
       </div>
       <div>
         <button class="title mt-10 rounded-md p-2">hello</button><br />
@@ -106,6 +161,7 @@ const bg_img = localCache.getCache("bg_img");
 .avatar-img {
   margin: 0 auto;
   height: 80%;
+  cursor: pointer;
 }
 
 .title {
