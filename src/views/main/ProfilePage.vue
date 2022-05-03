@@ -6,6 +6,7 @@ import { localCache } from "@/utils/Cache";
 // 引入antd的组件
 import { message } from "ant-design-vue";
 import type { UploadChangeParam, UploadProps } from "ant-design-vue";
+import axios from "axios";
 
 const profileStore = useProfile();
 onMounted(() => {
@@ -14,47 +15,55 @@ onMounted(() => {
 
 const data = profileStore.$state;
 
-// 图片数据持久化处理
+// 数据持久化处理
 const name = localCache.getCache("user_name");
-const avatar = localCache.getCache("avatar");
 const bg_img = localCache.getCache("bg_img");
+let avatar = ref(localCache.getCache("avatar"));
 
 // 照片上传列表
-const fileList = ref([]);
-// 图片上传状态
+let fileList = ref([]);
+// 图片上传状态，用来制作加载动画等效果。
 const loading = ref<boolean>(false);
 const imageUrl = ref<string>("");
 
 // 上传之前的预处理
 const beforeUpload = (file: UploadProps["fileList"][number]) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG file!");
-  }
+  // const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  // if (!isJpgOrPng) {
+  //   message.error("You can only upload JPG file!");
+  // }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
     message.error("Image must smaller than 2MB!");
   }
-  return isJpgOrPng && isLt2M;
+  return isLt2M;
 };
+
+// 获取图片的base64编码数据
+// function getBase64(img: Blob, callback: (base64Url: string) => void) {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => callback(reader.result as string));
+//   reader.readAsDataURL(img);
+// }
 
 // 上传过程变化对应执行的函数
 const handleChange = (info: UploadChangeParam) => {
-  if (info.file.status === "uploading") {
-    loading.value = true;
-    return;
-  }
   if (info.file.status === "done") {
-    // Get this url from response in real world.
-    getBase64(info.file.originFileObj, (base64Url: string) => {
-      imageUrl.value = base64Url;
-      loading.value = false;
-    });
+    message.success("success!");
   }
   if (info.file.status === "error") {
-    loading.value = false;
-    message.error("upload error");
+    message.error("error!");
   }
+};
+
+const handleRequest = async (data: any) => {
+  const formData = new FormData();
+  formData.append("file", data.file);
+  const result = await axios.post("/api/user/avatarUpload", formData);
+
+  const imgSrc = result.data.path;
+  localCache.setCache("avatar", imgSrc);
+  avatar = imgSrc;
 };
 </script>
 
@@ -64,13 +73,13 @@ const handleChange = (info: UploadChangeParam) => {
       <div class="avatar w-2/5 px-10 pt-10" title="修改头像">
         <a-upload
           v-model:file-list="fileList"
-          name="avatar"
-          list-type="picture-card"
+          name="file"
           class="avatar-uploader"
           :show-upload-list="false"
-          action="api/user/avatarUpload"
-          :before-upload="beforeUpload"
           @change="handleChange"
+          :before-upload="beforeUpload"
+          :customRequest="handleRequest"
+          accept="image/*"
         >
           <img :src="avatar" alt="" class="avatar-img" />
         </a-upload>
