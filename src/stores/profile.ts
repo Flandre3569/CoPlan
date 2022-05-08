@@ -45,6 +45,8 @@ export const useProfile = defineStore({
       } = profileInfo.data[0];
       const update_id = new Date(updateAt).toString();
 
+      // 对需要保存的数据进行持久化处理
+
       localCache.setCache("user_name", name);
       localCache.setCache("avatar", avatar);
       localCache.setCache("bg_img", background);
