@@ -21,7 +21,7 @@ export const useProfile = defineStore({
     university: "",
     address: "",
     email: "",
-    update_id: "",
+    update_time: "",
     introduction: "",
   }),
   getters: {},
@@ -43,7 +43,8 @@ export const useProfile = defineStore({
         introduction,
         background,
       } = profileInfo.data[0];
-      const update_id = new Date(updateAt).toString();
+      const update_time = new Date(updateAt).toString().split(" GMT")[0];
+      console.log(update_time);
 
       // 对需要保存的数据进行持久化处理
 
@@ -57,7 +58,7 @@ export const useProfile = defineStore({
         university,
         email,
         address,
-        update_id,
+        update_time,
         introduction,
       });
     },

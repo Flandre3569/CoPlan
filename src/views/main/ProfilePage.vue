@@ -56,6 +56,7 @@ const handleChange = (info: UploadChangeParam) => {
   }
 };
 
+// 上传图片处理逻辑
 const handleRequest = async (data: any) => {
   const formData = new FormData();
   formData.append("file", data.file);
@@ -87,9 +88,9 @@ const handleRequest = async (data: any) => {
       <div>
         <button class="title mt-10 rounded-md p-2">hello</button><br />
         <span class="title-name">i am {{ name }}</span>
-        <div class="mt-10">
-          <ul v-for="(value, key) in data" :key="key">
-            <li class="flex justify-start space-x-5" v-if="key !== 'introduction'">
+        <div class="mt-3">
+          <ul class="info-list-p" v-for="(value, key) in data" :key="key">
+            <li class="info-list flex space-x-5" v-if="key !== 'introduction'">
               <h2>{{ key }}</h2>
               <span>{{ value }}</span>
             </li>
@@ -174,16 +175,22 @@ const handleRequest = async (data: any) => {
 }
 
 .title {
-  font-size: large;
+  font-size: 1vw;
   border: burlywood solid 1px;
 }
 .title-name {
-  font-size: xxx-large;
+  font-size: 2vw;
   font-family: @font-family;
+}
+.info-list-p {
+  height: 2vh;
+  .info-list {
+    font-size: 1vw;
+  }
 }
 
 .download {
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   font-weight: 700;
   position: relative;
   top: 30%;
@@ -194,10 +201,10 @@ const handleRequest = async (data: any) => {
 }
 
 .self-introduction {
-  position: relative;
+  position: absolute;
   font-family: @font-family;
-  font-size: large;
-  bottom: -30rem;
+  font-size: 1vw;
+  top: 58%;
 }
 .footer_title {
   font-size: 2rem;
