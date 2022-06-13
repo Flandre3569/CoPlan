@@ -42,7 +42,7 @@ const toggleBtn = () => {
 </script>
 
 <template>
-  <div class="login animate__animated animate__slideInDown">
+  <div class="login animate__animated animate__fadeIn">
     <div class="wrapper flex justify-center mt-20 mb-10">
       <div class="typing-demo">Please enter your username and password.</div>
     </div>
@@ -64,10 +64,18 @@ const toggleBtn = () => {
           v-show="isActiveLeft"
         >
           <a-form-item label="Username">
-            <a-input v-model:value="registerData.username" placeholder="plz enter usr" />
+            <a-input
+              class="h-12"
+              v-model:value="registerData.username"
+              placeholder="plz enter usr"
+            />
           </a-form-item>
           <a-form-item label="Password">
-            <a-input-password v-model:value="registerData.password" placeholder="plz enter pwd" />
+            <a-input-password
+              class="h-12"
+              v-model:value="registerData.password"
+              placeholder="plz enter pwd"
+            />
           </a-form-item>
           <a-form-item>
             <a-button type="primary" danger @click="userStore.signUpAction(registerData)"
@@ -84,10 +92,14 @@ const toggleBtn = () => {
           v-show="isActiveRight"
         >
           <a-form-item label="Username">
-            <a-input v-model:value="loginData.username" placeholder="plz enter usr" />
+            <a-input class="h-12" v-model:value="loginData.username" placeholder="plz enter usr" />
           </a-form-item>
           <a-form-item label="Password">
-            <a-input-password v-model:value="loginData.password" placeholder="plz enter pwd" />
+            <a-input-password
+              class="h-12"
+              v-model:value="loginData.password"
+              placeholder="plz enter pwd"
+            />
           </a-form-item>
           <a-form-item>
             <a-button type="primary" danger @click="userStore.loginAction(loginData)"
